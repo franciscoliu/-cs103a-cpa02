@@ -7,11 +7,17 @@ const {OAuth2Client} = require('google-auth-library');
 const CLIENT_ID = '368063580362-psa3u4jgvvl0n3foeg95ndt463dub4u1.apps.googleusercontent.com'
 const client = new OAuth2Client(CLIENT_ID);
 
+
+// const mongoose = require( 'mongoose' );
+// //const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
+// const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
 const PORT = process.env.PORT || 5000;
 
 app.set('view engine', 'ejs');
 app.use(express.json());
 app.use(cookieParser());
+app.use(express.static('public'))
 
 
 
