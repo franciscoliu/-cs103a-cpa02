@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/franciscoliu/cs103a-cpa02#readme",
   "dependencies": {
+    "bootstrap": "^5.1.3",
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
