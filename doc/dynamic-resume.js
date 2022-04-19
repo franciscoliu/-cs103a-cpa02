@@ -54,19 +54,20 @@ const dynamicResume= (options, themeOptions)=>{
         }
 
         .heading-text {
-            font-size: 0.9rem;
+            font-size: 1.1rem;
         }
 
         .para,
         .per-info {
             font-size: 0.7rem !important;
+            border-collapse:collapse;
         }
 
         .about .para{
             width: 93%;
         }
         .key-skills li{
-            font-size: 0.7rem;
+            font-size: 1.5rem;
         }
 
     </style>
@@ -84,11 +85,10 @@ const dynamicResume= (options, themeOptions)=>{
                 <div class="contact ml-2 mt-2">
                     <div class="heading-text text-uppercase">Contact</div>
                     <p class="para mb-1">
-                        House no: 72-2 Jigatola, Dhaka <br>
-                        ${options.phone} <br>
+                        ${options.address} <br>
                         ${options.phone} <br>
                         ${options.email} <br>
-                        www.website-domain.com
+                        github: ${options.github} <br>
                     </p>
                 </div>
                 <div class="expert ml-2 mt-2">
@@ -97,7 +97,6 @@ const dynamicResume= (options, themeOptions)=>{
                     ${options.exp_1} <br>
                     ${options.exp_2} <br>
                     ${options.exp_3} <br>
-                        Digital marketing<br>
                     </p>
                 </div>
 
@@ -109,95 +108,89 @@ const dynamicResume= (options, themeOptions)=>{
                 </div>
 
 
-                <div class="hobbies ml-2 mt-2">
+                <div class="Extracurricular ml-2 mt-2">
                     <div class="heading-text text-uppercase">hobbies</div>
                     <p class="para mb-1">
-                        Cricket<br>
-                        Football <br>
-                        Watching Movies<br>
-                        Travel<br>
+                        ${options.extra1}<br>
+                        ${options.extra2}<br>
+                        ${options.extra3}<br>
                     </p>
                 </div>
-            </div>
+
+                <div class="honor ml-2 mt-2">
+                    <div class="heading-text text-uppercase">Honors</div>
+                    <p class="para mb-1">
+                        ${options.honor}
+                    </p>
+                </div>
+
+                <div class="Personal_Evaluation ml-2 mt-2">
+                    <div class="heading-text text-uppercase">Personal Evaluation</div>
+                    <p class="para mb-1">
+                        ${options.about}
+                    </p>
+                </div>
+
+                <div class="language ml-2 mt-2">
+                    <div class="heading-text text-uppercase">Language Skill</div>
+                        <p class="para mb-1">
+                            Language1: ${options.language1},
+                        </p>
+                        <p class="para mb-1">
+                            Language1 proficiency: ${options.language1_pro}
+                        </p>
+
+                        <p class="para mb-1">
+                            Language2: ${options.language2},
+                        </p>
+                        <p class="para mb-1">
+                            Language2 proficiency: ${options.language2_pro}
+                        </p>
+                    </div>
+
+                </div>
+
+
             <div class="right-side d-inline-block m-0 p-0 align-top">
                 <h2 class="name text-uppercase ml-3 my-2">${options.name}</h2>
 
-                <div class="contact ml-3 mt-3">
-                    <div class="heading-text text-uppercase">About Me</div>
-                    <p class="para mb-1">
-                    ${options.about}
-                    </p>
-                </div>
-                <div class="personal ml-3 mt-3">
-                    <div class="heading-text text-uppercase">Personal Informations</div>
-                    <table class="per-info">
-                        <tbody>
-                            <tr class="border">
-                                <td>Father's Name</td>
-                                <td>${options.f_name}</td>
-                            </tr>
-                            <tr class="border">
-                                <td>Mather's Name</td>
-                                <td>${options.m_name}</td>
-                            </tr>
-                            <tr class="border">
-                                <td>Date of Birth</td>
-                                <td>${options.birth}</td>
-                            </tr>
-                            <tr class="border">
-                                <td>Permanent Address</td>
-                                <td>Shohorbari, Singra, Natore</td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-                </div>
                 <div class="education ml-3 mt-3">
-                    <div class="heading-text text-uppercase">Educational informations</div>
+                    <div class="heading-text text-uppercase">Education Background</div>
                     <table class="per-info">
                         <tbody>
-                            <tr class="border">
-                                <td>2016-2019</td>
-                                <td>
-                                    bachelor of Business Administration <br>
-                                    CGPA 3.03 <br>
-                                    Major in FInance <br>
-                                    Daffodil international University
-                                </td>
+                            <tr>
+                                <th>${options.coll_name}: ${options.start} - ${options.grad} <br></th>
                             </tr>
-                            <tr class="border">
-                                <td>2013-2015</td>
+
+                            <tr>
                                 <td>
-                                    HSC <br>
-                                    CGPA 3.33 <br>
-                                    Business Studies <br>
-                                    Singra Damdama Pilot School and Collage
-                                </td>
-                            </tr>
-                            <tr class="border">
-                                <td>2008-2013</td>
-                                <td>
-                                    SSC <br>
-                                    CGPA 3.63 <br>
+                                    Major 1: ${options.major} <br>
+                                    Major 2: ${options.major2} <br>
+                                    Current GPA: ${options.gpa} <br>
+                                    Taken Course: ${options.courses} <br>
                                 </td>
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
 
 
 
-                <div class="key-skills ml-3 mt-3">
-                    <div class="heading-text text-uppercase">Key Skills</div>
+                <div class="per-info ml-3 mt-3">
+                    <div class="heading-text text-uppercase">Internship Experience</div>
                     <ul class="pl-1">
-                        <li>Understanding accounting and financial principles</li>
-                        <li>Computer literate and highly proficient in MS excel</li>
-                        <li>Strong analytical and problem solving skills</li>
-                        <li>Excellent interpersonal, cross-cultural</li>
-                        <li>Encourating and inspiring to others</li>
-                        <li>Verbal and written communications skill</li>
+                        <li>${options.intern1}, Position: ${options.int_position1}</li>
+                        <li>${options.intern2}, Position: ${options.int_position2}</li>
+                        <li>${options.intern3}, Position: ${options.int_position3}</li>
+                    </ul>
+                </div>
 
+                <div class="per-info ml-3 mt-3">
+                    <div class="heading-text text-uppercase">Research Experience</div>
+                    <ul class="pl-1">
+                        <li>${options.research1}, Position: ${options.res_position1}</li>
+                        <li>${options.research2}, Position: ${options.res_position2}</li>
+                        <li>${options.research3}, Position: ${options.res_position3}</li>
                     </ul>
                 </div>
             </div>
