@@ -1,37 +1,129 @@
 <div class="container">
-    <form action="/resume-maker" class="text-primary form" method="POST" >
+    <form action="/resume-generator" class="text-primary form" method="POST" >
+
+        <h4>Personal Information</h4>
         <div class="form-row">
             <div class="col-md-4 mb-3">
                 <label for="">Full Name</label>
-                <input type="text" name="name" class="form-control">
+                <input type="text" name="name" class="form-control" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label for="">Phone Number</label>
-                <input type="text" name="phone" class="form-control">
+                <input type="text" name="phone" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">Address</label>
+                <input type="text" name="address" class="form-control" required>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">github (optional)</label>
+                <input type="text" name="address" class="form-control">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="">E-mail</label>
-                <input type="text" name="email" class="form-control">
+                <input type="text" name="email" class="form-control" required>
             </div>
         </div>
+
+        <h4>Education Background</h4>
         <div class="form-row">
             <div class="col-md-4 mb-3">
-                <label for="">Father's name</label>
-                <input type="text" name="f_name" class="form-control">
+                <label for="">College Name</label>
+                <input type="text" name="coll_name" class="form-control" required>
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="">Mother's Name</label>
-                <input type="text" name="m_name" class="form-control">
+                <label for="">Major</label>
+                <input type="text" name="major" class="form-control" required>
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="">Date of Birth</label>
-                <input type="text" name="birth" class="form-control">
+                <label for="">Major2 (optional)</label>
+                <input type="text" name="major2" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="">Current GPA</label>
+                <input type="text" name="gpa" class="form-control" required>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="">Degree Start Time</label>
+                <input type="text" name="start" class="form-control" required>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="">Expected Graduated Year</label>
+                <input type="text" name="grad" class="form-control" required>
             </div>
         </div>
+
+        <div class="form-group">
+            <label for="">Taken Courses</label>
+            <textarea class="form-control" name="courses" id="" rows="2"></textarea>
+        </div>
+
         <div class="form-group">
             <label for="">About me</label>
             <textarea class="form-control" name="about" id="" rows="2"></textarea>
         </div>
+
+        <h4>Internship Experience (Optional)</h4>
+        <div class="form-group">
+            <label for="">Internship1</label>
+            <textarea class="form-control" name="intern1" id="" rows="2"></textarea>
+
+            <label for="">Position</label>
+            <input class="form-control" type="text" name="int_position1">
+
+        </div>
+
+        <div class="form-group">
+            <label for="">Internship2</label>
+            <textarea class="form-control" name="intern2" id="" rows="2"></textarea>
+
+            <label for="">Position</label>
+            <input class="form-control" type="text" name="int_position2">
+
+        </div>
+
+        <div class="form-group">
+            <label for="">Internship3</label>
+            <textarea class="form-control" name="intern3" id="" rows="2"></textarea>
+
+            <label for="">Position</label>
+            <input class="form-control" type="text" name="int_position3">
+        </div>
+
+
+        <h4>Research Experience (Optional)</h4>
+        <div class="form-group">
+            <label for="">Research1</label>
+            <textarea class="form-control" name="research1" id="" rows="2"></textarea>
+
+            <label for="">Position</label>
+            <input class="form-control" type="text" name="res_position1">
+
+        </div>
+
+        <div class="form-group">
+            <label for="">Research2</label>
+            <textarea class="form-control" name="research2" id="" rows="2"></textarea>
+
+            <label for="">Position</label>
+            <input class="form-control" type="text" name="res_position2">
+        </div>
+
+        <div class="form-group">
+            <label for="">Research3</label>
+            <textarea class="form-control" name="research3" id="" rows="2"></textarea>
+
+            <label for="">Position</label>
+            <input class="form-control" type="text" name="res_position3">
+
+        </div>
+
+
         <h4>Expertise Area</h4>
         <div class="form-row">
             <div class="col-md-4 mb-3">
@@ -48,11 +140,99 @@
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="">It Skills</label>
-            <input type="text" placeholder="this whould be a comma seperated list" name="skill" class="form-control">
+        <h4>Received Honors</h4>
+        <div class="Received-Honors">
+            <div class="form-group">
+                <!-- <a href="javascript:void(0);" class="add_button" title="Add field"><img id="add" src="https://pic.onlinewebfonts.com/svg/img_28524.png"/></a> -->
+                <label for="">Honor</label>
+                <textarea class="form-control" name="honor" id="" rows="2"></textarea>
+            </div>
         </div>
 
+        <div class="form-group">
+            <label for="">Computer Skills</label>
+            <input type="text" placeholder="eg.Javascript, ReactJS. etc" name="skill" class="form-control">
+        </div>
+
+        <h4>Language Skills</h4>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="">Language 1</label>
+                <input type="text" placeholder="English" name="language1" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">Language 1 proficency</label>
+                <select class="form-control" name="language1_pro" id="">
+                    <option value="">--Please choose an option--</option>
+                    <option>Native Speaker</option>
+                    <option>Intermediate</option>
+                    <option>Beginner</option>
+                </select>
+                <!-- <input type="text" placeholder="Native Speaker or Communication level" name="language1_pro" class="form-control"> -->
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">Language 2</label>
+                <input type="text" name="language2" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">Language 2 proficency</label>
+                <select class="form-control" name="language2_pro" id="">
+                    <option value="">--Please choose an option--</option>
+                    <option>Native Speaker</option>
+                    <option>Intermediate</option>
+                    <option>Beginner</option>
+                </select>
+                <!-- <input type="text" name="language2_pro" class="form-control"> -->
+            </div>
+        </div>
+
+        <h4>Extracurricular</h4>
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="">Extra. 1</label>
+                <input type="text" placeholder="eg. Soccer, football" name="extra1" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">Extra. 2</label>
+                <input type="text" name="extra2" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="">Extra. 3</label>
+                <input type="text" name="extra3" class="form-control">
+            </div>
+        </div>
         <button class="btn btn-primary" type="submit">Submit</button>
     </form>
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var maxField = 10; //Input fields increment limitation
+        var addButton = $('.add_button'); //Add button selector
+        var wrapper = $('.Received-Honors'); //Input field wrapper
+        var fieldHTML = '<div><textarea name="field_name[]" value=""/><a href="#" class="remove_button"><img id="minus" src="https://i.pinimg.com/564x/6a/0a/21/6a0a2140369f6fc926ef6683b873a65d.jpg"/ height ="25px" width ="25px"></a></textarea></div>'; //New input field html 
+        var x = 1; //Initial field counter is 1
+        
+        //Once add button is clicked
+        $(addButton).click(function(){
+            //Check maximum number of input fields
+            if(x < maxField){ 
+                x++; //Increment field counter
+                $(wrapper).append(fieldHTML); //Add field html
+            }
+        });
+        
+        //Once remove button is clicked
+        $(wrapper).on('click', '.remove_button', function(e){
+            e.preventDefault();
+            $(this).parent('div').remove(); //Remove field html
+            x--; //Decrement field counter
+        });
+    });
+
+    const add = document.getElementById("add");
+    add.style.width = "25px";
+    add.style.height = "25px";
+
+    </script>
