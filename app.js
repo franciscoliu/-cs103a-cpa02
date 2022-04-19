@@ -4,6 +4,11 @@ const cookieParser = require('cookie-parser')
 const session = require("express-session"); // to handle sessions using cookies
 const path = require("path");  // to refer to local paths
 const auth = require('./routes/auth');
+const pdf = require('html-pdf');
+const expressLayouts = require('express-ejs-layouts');
+const dynamicResume = require('./doc/dynamic-resume');;
+
+
 
 
 
@@ -15,7 +20,7 @@ const client = new OAuth2Client(CLIENT_ID);
 
 const mongoose = require( 'mongoose' );
 // const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
-const mongodb_URI = 'mongodb+srv://cs_sj:BrandeisSpr22@cluster0.kgugl.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+const mongodb_URI = 'mongodb+srv://zheyuanliu:140!XuzuPe0106@cluster0.rdpsv.mongodb.net/Project?retryWrites=true&w=majority'
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
 // fix deprecation warnings
@@ -25,9 +30,11 @@ db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {console.log("we are connected!!!")});
 
 const app = express();
-
-
 const PORT = process.env.PORT || 5000;
+const options = {
+    "height": "6.28in",        // allowed units: mm, cm, in, px
+    "width": "4.8in",            // allowed units: mm, cm, in, pxI
+};
 
 app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
@@ -37,8 +44,10 @@ app.use(express.urlencoded({ extended: false }));    ///Look up why is this
 app.use(cookieParser());
 
 app.use(express.static(path.join(__dirname, "public")));
+// app.use(expressLayouts);
 
-app.use(express.static('public'))
+
+// app.use(express.static('public'))
 
 app.use(
     session({
@@ -49,8 +58,8 @@ app.use(
   );
   
 // const auth = require('./routes/auth');
-// const { deflateSync } = require("zlib");
-// app.use(auth)
+const { deflateSync } = require("zlib");
+app.use(auth)
 
 const isLoggedIn = (req,res,next) => {
     if (res.locals.loggedIn) {
@@ -105,6 +114,11 @@ app.get('/logout', (req, res) => {
     res.redirect('/login')
 })
 
+app.get('/resume-generator', (req, res) =>{
+    res.redirect('/resume-generator')
+
+});
+
 
 function checkAuthenticated(req, res, next){
 
@@ -131,6 +145,58 @@ function checkAuthenticated(req, res, next){
       })
 
 }
+
+
+
+app.post('/resume-maker', (req, res, next) => {
+    console.log(req.body);
+    // LOWERCASE -> REMOVE SPACE -> SHORT NAME 
+    const userName = req.body.name;
+    const lowercaseName = userName.toLowerCase();
+    const noSpaceName = lowercaseName.replace(' ', '');
+    const shortName = noSpaceName.slice(0, 10);
+    console.log("short name: ", shortName);
+
+
+    let themeOptions = {
+        leftTextColor: "rgb(91, 88, 255)",
+        leftBackgroundColor: 'rgb(12, 36, 58)',
+        wholeBodyColor: ' rgb(183, 182, 255)',
+        rightTextColor: 'rgb(12, 36, 58)'
+    };
+
+    // HTML TO PDF CONVERTING
+    pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
+        if (error) throw Error("File is not created");
+        console.log(response.filename);
+        res.sendFile(response.filename);
+    });
+    pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
+        if (error) throw Error("File is not created");
+        console.log(response.filename);
+        res.sendFile(response.filename);
+    });
+
+
+});
+
+
+// app.get('/pdf-static-resume', (req, res, next) => {
+//     // HTML TO PDF CONVERTING
+//     pdf.create(staticResume(), options).toFile(__dirname + "/docs/static-resume.pdf", (error, response) => {
+//         if (error) throw Error("File is not created");
+//         console.log(response.filename);
+//         res.sendFile(response.filename);
+//     });
+// });
+
+
+
+app.get('/download-pdf', (req, res, next) => {
+    const filePath = __dirname + '/docs/static-resume.pdf';
+    res.download(filePath);;
+});
+
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
