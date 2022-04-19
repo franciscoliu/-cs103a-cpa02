@@ -19,6 +19,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 const User = require('../model/User')
+const personal_info = require('../model/personal_info')
+
 
 
 
@@ -48,6 +50,10 @@ router.get("/login", (req,res) => {
   res.render("login")
 })
 
+router.get("/resume-generator", (req,res) => {
+  res.render("resume-generator")
+})
+
 router.post('/login',
   async (req,res,next) => {
     try {
@@ -68,6 +74,27 @@ router.post('/login',
       next(e)
     }
   })
+
+  // router.post('/resume-generator',
+  // async (req,res,next) => {
+  //   try {
+  //     const {name, phone, email, f_name, m_name, birth, about, exp_1, exp_2, exp_3, skill} = req.body
+  //     const user_name = await User.findOne({username:username})
+  //     const isMatch = await bcrypt.compare(passphrase,user.passphrase );
+
+  //     if (isMatch) {
+  //       req.session.username = username //req.body
+  //       req.session.user = user
+  //       res.redirect('/temp')
+  //     } else {
+  //       req.session.username = null
+  //       req.session.user = null
+  //       res.redirect('/login')
+  //     }
+  //   }catch(e){
+  //     next(e)
+  //   }
+  // })
 
 router.post('/signup',
   async (req,res,next) =>{
