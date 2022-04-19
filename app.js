@@ -148,7 +148,7 @@ function checkAuthenticated(req, res, next){
 
 
 
-app.post('/resume-maker', (req, res, next) => {
+app.post('/resume-generator', (req, res, next) => {
     console.log(req.body);
     // LOWERCASE -> REMOVE SPACE -> SHORT NAME 
     const userName = req.body.name;
