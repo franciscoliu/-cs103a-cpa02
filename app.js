@@ -10,6 +10,9 @@ const dynamicResume = require('./doc/dynamic-resume');;
 
 
 
+const personal_info = require('./model/personal_info')
+
+
 
 
 //Google Auth
@@ -69,7 +72,6 @@ const isLoggedIn = (req,res,next) => {
   }
 
 const Administrator = (req, res, next) => {
-    console.log(res.locals.admin);
     if (res.locals.admin) {
         next()
       }
@@ -113,6 +115,30 @@ app.get('/temp', isLoggedIn, (req, res) => {
 
 app.get('/protected', Administrator, (req, res) => {
     res.render('protected.ejs');
+});
+
+app.post('/protected/byName', Administrator, 
+    async(req, res, next) => {
+        const name = req.body.name
+        const personal = await personal_info.find({name: {'$regex': name}})
+        res.json(personal)
+        // res.render('protected');
+});
+
+app.post('/protected/bySchool', Administrator, 
+    async(req, res, next) => {
+        const school = req.body.name
+        const personal = await personal_info.find({coll_name: {'$regex': school}})
+        res.json(personal)
+        // res.render('protected');
+});
+
+app.post('/protected/byMajor', Administrator, 
+    async(req, res, next) => {
+        const major = req.body.name
+        const personal = await personal_info.find({$or: [{major: {'$regex': major}}, {major2: {'$regex': major}}]})
+        res.json(personal)
+        // res.render('protected');
 });
 
 app.get('/logout', (req, res) => {
@@ -223,3 +249,5 @@ app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render("error");
 });
+
+module.exports = app;
