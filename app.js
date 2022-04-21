@@ -68,7 +68,13 @@ const isLoggedIn = (req,res,next) => {
     else res.redirect('/login')
   }
 
-
+const Administrator = (req, res, next) => {
+    console.log(res.locals.admin);
+    if (res.locals.admin) {
+        next()
+      }
+      else res.redirect('/login')
+}
 app.get('/', (req, res) =>{
     res.render('index');
 });
@@ -105,7 +111,7 @@ app.get('/temp', isLoggedIn, (req, res) => {
     res.render('temp');
 })
 
-app.get('/protected', checkAuthenticated, (req, res) => {
+app.get('/protected', Administrator, (req, res) => {
     res.render('protected.ejs');
 });
 
@@ -149,7 +155,7 @@ function checkAuthenticated(req, res, next){
 
 
 app.post('/resume-generator', (req, res, next) => {
-    console.log(req.body);
+    console.log("body", req.body);
     // LOWERCASE -> REMOVE SPACE -> SHORT NAME 
     const userName = req.body.name;
     const lowercaseName = userName.toLowerCase();
