@@ -93,7 +93,7 @@
                 console.log('Signed in as: ' + xhr.responseText);
                 if(xhr.responseText == 'success'){
                     signOut();
-                    location.assign('/userpage')
+                    location.assign('/temp')
                 }
                 };
                 xhr.send(JSON.stringify({token: id_token}));
