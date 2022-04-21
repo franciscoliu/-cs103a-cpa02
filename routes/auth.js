@@ -34,9 +34,19 @@ router.use(function(req, res, next) {
 
 router.use((req,res,next) => {
   if (req.session.username) {
-    res.locals.loggedIn = true
-    res.locals.username = req.session.username
-    res.locals.user = req.session.user
+    if(req.session.username == 'Administrator'){
+      res.locals.admin = true
+      res.locals.loggedIn = true
+      res.locals.username = req.session.username
+      res.locals.user = req.session.user
+    }
+    else{
+      res.locals.admin = false
+      res.locals.loggedIn = true
+      res.locals.username = req.session.username
+      res.locals.user = req.session.user
+    }
+
   } else {
     res.locals.loggedIn = false
     res.locals.username = null
@@ -60,41 +70,30 @@ router.post('/login',
       const {username,passphrase} = req.body
       const user = await User.findOne({username:username})
       const isMatch = await bcrypt.compare(passphrase,user.passphrase );
-
-      if (isMatch) {
+      if(username == "Administrator" && isMatch){
+        res.locals.admin = true
+        console.log( res.locals.admin );
         req.session.username = username //req.body
         req.session.user = user
-        res.redirect('/temp')
-      } else {
-        req.session.username = null
-        req.session.user = null
-        res.redirect('/login')
+        res.redirect('/protected')
+      }
+      else {
+        res.locals.admin = false
+        if (isMatch) {
+          req.session.username = username //req.body
+          req.session.user = user
+          res.redirect('/temp')
+        } else {
+          req.session.username = null
+          req.session.user = null
+          res.redirect('/login')
+        }
       }
     }catch(e){
       next(e)
     }
   })
 
-  // router.post('/resume-generator',
-  // async (req,res,next) => {
-  //   try {
-  //     const {name, phone, email, f_name, m_name, birth, about, exp_1, exp_2, exp_3, skill} = req.body
-  //     const user_name = await User.findOne({username:username})
-  //     const isMatch = await bcrypt.compare(passphrase,user.passphrase );
-
-  //     if (isMatch) {
-  //       req.session.username = username //req.body
-  //       req.session.user = user
-  //       res.redirect('/temp')
-  //     } else {
-  //       req.session.username = null
-  //       req.session.user = null
-  //       res.redirect('/login')
-  //     }
-  //   }catch(e){
-  //     next(e)
-  //   }
-  // })
 
 router.post('/signup',
   async (req,res,next) =>{
@@ -128,6 +127,96 @@ router.post('/signup',
         
         
       }
+    }catch(e){
+      next(e)
+    }
+  })
+
+
+  router.post('/resume-generator',
+  async (req,res,next) =>{
+    try {
+      const {name,
+        phone,
+        address,
+        github,
+        email,
+        coll_name,
+        major,
+        major2,
+        gpa,
+        start,
+        grad,
+        courses,
+        about,
+        intern1,
+        int_position1,
+        intern2,
+        int_position2,
+        intern3,
+        int_position3,
+        research1,
+        res_position1,
+        research2,
+        res_position2,
+        research3,
+        res_position3,
+        exp_1,
+        exp_2,
+        exp_3,
+        honor,
+        skill,
+        language1,
+        language1_pro,
+        language2,
+        language2_pro,
+        extra1,
+        extra2,
+        extra3} = req.body
+        
+          const personal = new personal_info(
+            {name: name,
+              phone: phone,
+              address: address,
+              github:github,
+              email: email,
+              coll_name: coll_name,
+              major: major,
+              major2: major2,
+              gpa: gpa,
+              start: start,
+              grad: grad,
+              courses: courses,
+              about: about,
+              intern1: intern1,
+              int_position1: int_position1,
+              intern2: intern2,
+              int_position2: int_position2,
+              intern3: intern3,
+              int_position3: int_position3,
+              research1: research1,
+              res_position1: res_position1,
+              research2: research2,
+              res_position2: res_position2,
+              research3: research3,
+              res_position3: res_position3,
+              exp_1: exp_1,
+              exp_2: exp_2,
+              exp_3: exp_3,
+              honor: honor,
+              skill: skill,
+              language1: language1,
+              language1_pro: language1_pro,
+              language2: language2,
+              language2_pro: language2_pro,
+              extra1: extra1,
+              extra2: extra2,
+              extra3: extra3
+            })
+          
+          await personal.save()
+          next()
+        
     }catch(e){
       next(e)
     }
