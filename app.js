@@ -4,7 +4,7 @@ const cookieParser = require('cookie-parser')
 const session = require("express-session"); // to handle sessions using cookies
 const path = require("path");  // to refer to local paths
 const auth = require('./routes/auth');
-const pdf = require('html-pdf');
+// const pdf = require('html-pdf');
 const expressLayouts = require('express-ejs-layouts');
 const dynamicResume = require('./doc/dynamic-resume');;
 
@@ -198,16 +198,16 @@ app.post('/resume-generator', (req, res, next) => {
     };
 
     // HTML TO PDF CONVERTING
-    pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
-        if (error) throw Error("File is not created");
-        console.log(response.filename);
-        res.sendFile(response.filename);
-    });
-    pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
-        if (error) throw Error("File is not created");
-        console.log(response.filename);
-        res.sendFile(response.filename);
-    });
+    // pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
+    //     if (error) throw Error("File is not created");
+    //     console.log(response.filename);
+    //     res.sendFile(response.filename);
+    // });
+    // pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
+    //     if (error) throw Error("File is not created");
+    //     console.log(response.filename);
+    //     res.sendFile(response.filename);
+    // });
 
 
 });
