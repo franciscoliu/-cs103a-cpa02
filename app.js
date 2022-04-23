@@ -88,8 +88,7 @@ app.get('/', (req, res) =>{
 });
 
 app.get('/login', (req, res) => {
-    console.log(process.env.DB_USERNAME);
-    res.render('login')
+        res.render('login')
 })
 
 app.post('/login', (req, res)=> {
