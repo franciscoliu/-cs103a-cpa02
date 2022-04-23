@@ -9,8 +9,8 @@ const axios = require('axios')
 // const pdf = require('html-pdf');
 const expressLayouts = require('express-ejs-layouts');
 const dynamicResume = require('./doc/dynamic-resume');;
-
-
+const dotenv = require('dotenv')
+dotenv.config()
 
 const personal_info = require('./model/personal_info')
 
@@ -25,7 +25,7 @@ const client = new OAuth2Client(CLIENT_ID);
 
 const mongoose = require( 'mongoose' );
 // const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
-const mongodb_URI = 'mongodb+srv://zheyuanliu:140!XuzuPe0106@cluster0.rdpsv.mongodb.net/Project?retryWrites=true&w=majority'
+const mongodb_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.rdpsv.mongodb.net/Project?retryWrites=true&w=majority`
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
 // fix deprecation warnings
