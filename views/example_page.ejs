@@ -1,4 +1,4 @@
-<!Doctype html>
+<!doctype html>
 <html lang="en">
 
 <head>
@@ -83,20 +83,25 @@
                 <div class="contact ml-2 mt-2">
                     <div class="heading-text text-uppercase">Contact</div>
                     <p class="para mb-1">
-                        <% userName %>  <br>
-                        
+                        <%= useraddress  %> <br>
+                        <%= userPhone  %>  <br>
+                        <%= useremail  %> <br>
+                        github: <%= usergithub  %> <br>
                     </p>
                 </div>
                 <div class="expert ml-2 mt-2">
                     <div class="heading-text text-uppercase">Expertise Area</div>
                     <p class="para mb-1">
-                    
+                        <%= userexp1  %> <br>
+                        <%= userexp2  %> <br>
+                        <%= userexp3  %> <br>
                     </p>
                 </div>
 
                 <div class="skill ml-2 mt-2">
                     <div class="heading-text text-uppercase">IT Skill</div>
                     <p class="para mb-1">
+                        <% skill %> 
                     </p>
                 </div>
 
@@ -104,32 +109,40 @@
                 <div class="Extracurricular ml-2 mt-2">
                     <div class="heading-text text-uppercase">hobbies</div>
                     <p class="para mb-1">
-                        
+                        <%= extra1  %><br>
+                        <%= extra2  %><br>
+                        <%= extra3 %><br>
                     </p>
                 </div>
 
                 <div class="honor ml-2 mt-2">
                     <div class="heading-text text-uppercase">Honors</div>
                     <p class="para mb-1">
+                        <%= honor  %>
                     </p>
                 </div>
 
                 <div class="Personal_Evaluation ml-2 mt-2">
                     <div class="heading-text text-uppercase">Personal Evaluation</div>
                     <p class="para mb-1">
+                        <%= userabout  %>
                     </p>
                 </div>
 
                 <div class="language ml-2 mt-2">
                     <div class="heading-text text-uppercase">Language Skill</div>
                         <p class="para mb-1">
+                            Language1: <%= language1  %>,
                         </p>
                         <p class="para mb-1">
+                            Language1 proficiency: <%= language1_pro  %>
                         </p>
 
                         <p class="para mb-1">
+                            Language2: <%= language2  %>,
                         </p>
                         <p class="para mb-1">
+                            Language2 proficiency: <%= language2_pro %>
                         </p>
                     </div>
 
@@ -137,18 +150,22 @@
 
 
             <div class="right-side d-inline-block m-0 p-0 align-top">
-                <h2 class="name text-uppercase ml-3 my-2">${options.name}</h2>
+                <h2 class="name text-uppercase ml-3 my-2"><%= userName  %>,</h2>
 
                 <div class="education ml-3 mt-3">
                     <div class="heading-text text-uppercase">Education Background</div>
                     <table class="per-info">
                         <tbody>
                             <tr>
+                                <th><%= usercollege  %>,: <%= userstart %>  -  <%= usergrad %> <br></th>
                             </tr>
 
                             <tr>
                                 <td>
-                                   
+                                    Major 1: <%= usermajor  %><br>
+                                    Major 2: <%= usermajor2  %><br>
+                                    Current GPA: <%= usergpa  %> <br>
+                                    Taken Course: <%= usercourse  %><br>
                                 </td>
                             </tr>
                         </tbody>
@@ -160,14 +177,18 @@
                 <div class="per-info ml-3 mt-3">
                     <div class="heading-text text-uppercase">Internship Experience</div>
                     <ul class="pl-1">
-                
+                        <li><%= userintern1  %>, Position: <%= userinpternpos1  %></li>
+                        <li><%= userintern2  %>, Position: <%= userinpternpos2  %></li>
+                        <li><%= userintern3  %>, Position: <%= userinpternpos3 %></li>
                     </ul>
                 </div>
 
                 <div class="per-info ml-3 mt-3">
                     <div class="heading-text text-uppercase">Research Experience</div>
                     <ul class="pl-1">
-                        
+                        <li><%= userres1  %>, Position: <%= userrespos1  %></li>
+                        <li><%= userres2  %>, Position: <%= userrespos2  %></li>
+                        <li><%= userres3  %>, Position: <%= userrespos3 %></li>
                     </ul>
                 </div>
             </div>
