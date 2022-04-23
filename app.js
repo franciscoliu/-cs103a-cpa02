@@ -60,7 +60,8 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
     session({
-      secret: "zzbbyanana789sdfa8f9ds8f90ds87f8d9s789fds", // this ought to be hidden in process.env.SECRET
+    //   secret: "zzbbyanana789sdfa8f9ds8f90ds87f8d9s789fds", // this ought to be hidden in process.env.SECRET
+    secret: process.env.SECRET, // this ought to be hidden in process.env.SECRET
       resave: false,
       saveUninitialized: false
     })
