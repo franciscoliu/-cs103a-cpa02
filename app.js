@@ -6,7 +6,7 @@ const path = require("path");  // to refer to local paths
 const auth = require('./routes/auth');
 const axios = require('axios')
 
-// const pdf = require('html-pdf');
+const pdf = require('html-pdf');
 const expressLayouts = require('express-ejs-layouts');
 const dynamicResume = require('./doc/dynamic-resume');;
 
@@ -155,6 +155,60 @@ app.get('/resume-generator', (req, res) =>{
 
 });
 
+app.get('/example_page', (req, res) => {
+    res.render('example_page')
+})
+
+app.post('/resume-generator', 
+    async(req, res, next) => {
+        // console.log(req.body);
+        const userName = req.body.name;
+        const userPhone = req.body.phone;
+        const useraddress = req.body.address;
+        const usergithub = req.body.github;
+        const useremail = req.body.email;
+        const usercollege = req.body.coll_name;
+        const usermajor = req.body.major;
+        const usermajor2 = req.body.major2;
+        const usergpa = req.body.gpa;
+        const userstart = req.body.start;
+        const usergrad = req.body.grad;
+        const usercourse = req.body.courses;
+        const userabout = req.body.about;
+        const userintern1 = req.body.intern1;
+        const userinpternpos1 = req.body.int_position1;
+        const userintern2 = req.body.inter2;
+        const userinpternpos2 = req.body.int_position2;
+        const userintern3 = req.body.intern3;
+        const userinpternpos3 = req.body.int_position3;
+        const userres1 = req.body.research1;
+        const userrespos1 = req.body.res_position1;
+        const userres2 = req.body.research2;
+        const userrespos2 = req.body.res_position2;
+        const userres3 = req.body.research3;
+        const userrespos3= req.body.res_position3;
+        const userexp1 = req.body.exp_1;
+        const userexp2 = req.body.exp_2;
+        const userexp3= req.body.exp_3;
+        const honor= req.body.honor;
+        const skill= req.body.skill;
+        const language1= req.body.language1;
+        const language1_pro= req.body.language1_pro;
+        const language2= req.body.language2;
+        const language2_pro= req.body.language2_pro;
+        const extra1= req.body.extra1;
+        const extra2= req.body.extra2;
+        const extra3= req.body.extra3;
+        res.render('example_page', {userName: userName, userPhone: userPhone, useraddress:useraddress,
+            usergithub:usergithub, useremail:useremail,usercollege:usercollege,usermajor:usermajor,usermajor2:usermajor2,
+            usergpa:usergpa,userstart:userstart,usergrad:usergrad, usercourse:usercourse, userabout:userabout,userintern1:userintern1,
+            userinpternpos1:userinpternpos1,userintern2:userintern2,
+            userinpternpos2:userinpternpos2, userintern3:userintern3,
+            userinpternpos3:userinpternpos3, userres1:userres1, userrespos1: userrespos1, userres2:userres2, userrespos2: userrespos2,
+            userres3:userres3, userrespos3: userrespos3, userexp1:userexp1, userexp2:userexp2, userexp3:userexp3, honor:honor, skill:skill,
+        language1:language1, language1_pro:language1_pro,language2:language2, language2_pro:language2_pro,extra1:extra1,extra2:extra2,extra3:extra3})
+});
+
 
 function checkAuthenticated(req, res, next){
 
@@ -184,37 +238,41 @@ function checkAuthenticated(req, res, next){
 
 
 
-app.post('/resume-generator', (req, res, next) => {
-    console.log("body", req.body);
-    // LOWERCASE -> REMOVE SPACE -> SHORT NAME 
-    const userName = req.body.name;
-    const lowercaseName = userName.toLowerCase();
-    const noSpaceName = lowercaseName.replace(' ', '');
-    const shortName = noSpaceName.slice(0, 10);
-    console.log("short name: ", shortName);
 
 
-    let themeOptions = {
-        leftTextColor: "rgb(91, 88, 255)",
-        leftBackgroundColor: 'rgb(12, 36, 58)',
-        wholeBodyColor: ' rgb(183, 182, 255)',
-        rightTextColor: 'rgb(12, 36, 58)'
-    };
+// app.post('/resume-generator', (req, res, next) => {
+//     console.log("body", req.body);
+//     // LOWERCASE -> REMOVE SPACE -> SHORT NAME 
+//     const userName = req.body.name;
+//     const lowercaseName = userName.toLowerCase();
+//     const noSpaceName = lowercaseName.replace(' ', '');
+//     const shortName = noSpaceName.slice(0, 10);
+//     console.log("short name: ", shortName);
+//     console.log(req.body.address);
 
-    // HTML TO PDF CONVERTING
-    // pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
-    //     if (error) throw Error("File is not created");
-    //     console.log(response.filename);
-    //     res.sendFile(response.filename);
-    // });
-    // pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
-    //     if (error) throw Error("File is not created");
-    //     console.log(response.filename);
-    //     res.sendFile(response.filename);
-    // });
+//     let themeOptions = {
+//         leftTextColor: "rgb(91, 88, 255)",
+//         leftBackgroundColor: 'rgb(12, 36, 58)',
+//         wholeBodyColor: ' rgb(183, 182, 255)',
+//         rightTextColor: 'rgb(12, 36, 58)'
+//     };
+    
+//     res.render('/login')
+
+//     // HTML TO PDF CONVERTING
+//     // pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
+//     //     if (error) throw Error("File is not created");
+//     //     console.log(response.filename);
+//     //     res.sendFile(response.filename);
+//     // });
+//     // pdf.create(dynamicResume(req.body, themeOptions), options).toFile(__dirname + "/personal_resume/" + shortName + "-resume.pdf", (error, response) => {
+//     //     if (error) throw Error("File is not created");
+//     //     console.log(response.filename);
+//     //     res.sendFile(response.filename);
+//     // });
 
 
-});
+// });
 
 
 // app.get('/pdf-static-resume', (req, res, next) => {
