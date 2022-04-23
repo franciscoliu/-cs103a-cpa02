@@ -5,6 +5,7 @@ const session = require("express-session"); // to handle sessions using cookies
 const path = require("path");  // to refer to local paths
 const auth = require('./routes/auth');
 const axios = require('axios')
+axios.post('https://cs103a-cpa02.herokuapp.com/', {})
 
 // const pdf = require('html-pdf');
 const expressLayouts = require('express-ejs-layouts');
@@ -52,9 +53,6 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
 // app.use(expressLayouts);
 
-// axios.post('https://cs103a-cpa02.herokuapp.com/', {})
-
-baseUrl = process.env.baseURL || "http://localhost:5000"
 
 
 
