@@ -6,7 +6,7 @@ const path = require("path");  // to refer to local paths
 const auth = require('./routes/auth');
 const axios = require('axios')
 
-const pdf = require('html-pdf');
+// const pdf = require('html-pdf');
 const expressLayouts = require('express-ejs-layouts');
 const dynamicResume = require('./doc/dynamic-resume');;
 
