@@ -27,7 +27,6 @@ const client = new OAuth2Client(CLIENT_ID);
 const mongoose = require( 'mongoose' );
 // const mongodb_URI = 'mongodb://localhost:27017/cs103a_todo'
 const mongodb_URI = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@cluster0.rdpsv.mongodb.net/Project?retryWrites=true&w=majority`
-console.log(process.env.DB_USERNAME);
 // const mongodb_URI = 'mongodb+srv://zheyuanliu:140!XuzuPe0106@cluster0.rdpsv.mongodb.net/Project?retryWrites=true&w=majority'
 
 mongoose.connect( mongodb_URI, { useNewUrlParser: true, useUnifiedTopology: true } );
@@ -89,6 +88,7 @@ app.get('/', (req, res) =>{
 });
 
 app.get('/login', (req, res) => {
+    console.log(process.env.DB_USERNAME);
     res.render('login')
 })
 
