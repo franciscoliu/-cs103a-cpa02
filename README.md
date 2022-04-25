@@ -36,7 +36,7 @@ It will then redirect to the information page of the person (in this case, the p
 ![1650897653(1)](https://user-images.githubusercontent.com/62361017/165112583-3ecf96f9-e836-40ea-a439-a5ea2652aa6d.png)
 
 <h2> Installation </h2>
-Download the project from ![github](https://github.com/franciscoliu/cs103a-cpa02) and download nodejs and npm from https://nodejs.org
+Download the project from https://github.com/franciscoliu/cs103a-cpa02 and download nodejs and npm from https://nodejs.org
 and cd into the folder
 
 Install the packages with
