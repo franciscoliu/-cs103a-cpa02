@@ -34,3 +34,30 @@ Then after entering name/school/major, the corresponding person(s) will appear, 
 It will then redirect to the information page of the person (in this case, the person did not enter any information for his experrence because it is not required:
 
 ![1650897653(1)](https://user-images.githubusercontent.com/62361017/165112583-3ecf96f9-e836-40ea-a439-a5ea2652aa6d.png)
+
+<h2> Installation </h2>
+Download the project from [github](https://github.com/franciscoliu/cs103a-cpa02) and download nodejs and npm from https://nodejs.org
+and cd into the folder
+
+Install the packages with
+``` bash
+npm install
+```
+Start the project with
+``` bash
+node app.js
+```
+or install nodemon (the node monitoring app) with
+``` bash
+npm install -g nodemon
+```
+and start the project with
+``` bash
+nodemon app.js
+```
+If there is any necessary packages to download, please use the following command to download:
+```bash
+npm install -g [required package]
+```
+
+  
