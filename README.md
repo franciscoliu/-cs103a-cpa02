@@ -1,4 +1,7 @@
 # cs103a-cpa02
+<h2> Zoom Link </h2>
+https://brandeis.zoom.us/rec/share/cPo8Z4DpKU2nC39rk1K6h-YiN605tgcAiLhUhAvhqnYkpEGSdtWLBkw_astTzpUA._K6gQxl4oWJpcUk4?startTime=1650899882000 
+ 
 <h2>Description</h2>:
 The main function of this app is to help student generate their first resume. At the main page, they can choose if they want to get one resume or get tips of how to write resume:
 ![9df7cecb16964c15231ab3d6df506d2](https://user-images.githubusercontent.com/62361017/165009101-7af8556b-10f0-4e2e-b540-b2c8bd2b13f4.png)
@@ -59,5 +62,6 @@ If there is any necessary packages to download, please use the following command
 ```bash
 npm install -g [required package]
 ```
+
 
   
