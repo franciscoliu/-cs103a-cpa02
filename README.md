@@ -1,6 +1,9 @@
 # cs103a-cpa02
 <h2> Zoom Link </h2>
 https://brandeis.zoom.us/rec/share/cPo8Z4DpKU2nC39rk1K6h-YiN605tgcAiLhUhAvhqnYkpEGSdtWLBkw_astTzpUA._K6gQxl4oWJpcUk4?startTime=1650899882000 
+
+<h2> Video in google drive (if zoom does not work) </h2>
+https://drive.google.com/drive/folders/1pUplADTDuSKa6mUp6NA0SsDPn7HZ-VBy?usp=sharing
  
 <h2>Description</h2>:
 The main function of this app is to help student generate their first resume. At the main page, they can choose if they want to get one resume or get tips of how to write resume:
