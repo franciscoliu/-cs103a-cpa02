@@ -1,5 +1,5 @@
-# cs103a-cpa02
-<h2> Zoom Link </h2>
+# CV-auto-generator
+<h2> Demonstration </h2>
 https://brandeis.zoom.us/rec/share/cPo8Z4DpKU2nC39rk1K6h-YiN605tgcAiLhUhAvhqnYkpEGSdtWLBkw_astTzpUA._K6gQxl4oWJpcUk4?startTime=1650899882000 
 
 <h2> Video in google drive (if zoom does not work) </h2>
